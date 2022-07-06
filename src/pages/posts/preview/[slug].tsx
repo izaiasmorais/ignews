@@ -10,25 +10,26 @@ import { useEffect } from "react";
 import { client } from "../../../lib/apollo";
 import styles from "../post.module.scss";
 
-interface PostPreviewProps {
-  post: {
-    slug: string;
-    title: string;
-    postedAt: Date;
-    description: string;
-    content: {
-      html: string;
-    };
-  }[];
+interface Post {
+  slug: string;
+  title: string;
+  postedAt: string;
+  description: string;
+  content: {
+    html: string;
+  };
 }
 
-export default function PostPreview({ data }: any) {
-  const { post } = data;
+interface PostPreviewProps {
+  post: Post;
+}
 
+export default function PostPreview({ post }: PostPreviewProps) {
   const { data: session } = useSession();
   const router = useRouter();
 
   useEffect(() => {
+    // @ts-ignore
     if (session?.activeSubscription) {
       router.push(`/posts/${post.slug}`);
     }
@@ -103,7 +104,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      data,
+      post: data.post,
     },
     redirect: 60 * 30,
   };

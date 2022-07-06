@@ -53,17 +53,16 @@ export const getServerSideProps: GetServerSideProps = async ({
   params,
 }) => {
   const session = await getSession({ req });
+  const { slug } = params!;
 
   if (!session?.activeSubscription) {
     return {
       redirect: {
-        destination: "/",
+        destination: `/`,
         permanent: false,
       },
     };
   }
-
-  const { slug } = params!;
 
   const GET_POSTS_BY_QUERY = gql`
     query GetPostBySlug($slug: String) {

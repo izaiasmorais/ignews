@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { client } from "../../lib/apollo";
@@ -15,7 +16,9 @@ interface getPostQueryProps {
   }[];
 }
 
-export default function Posts({ posts }: getPostQueryProps) { 
+export default function Posts({ posts }: getPostQueryProps) {
+  const { data: session } = useSession();
+
   return (
     <>
       <Head>
@@ -25,7 +28,14 @@ export default function Posts({ posts }: getPostQueryProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <Link key={post.slug} href={`/posts/${post.slug}`}>
+            <Link
+              key={post.slug}
+              href={
+                session?.activeSubscription
+                  ? `/posts/${post.slug}`
+                  : `/posts/preview/${post.slug}`
+              }
+            >
               <a>
                 <time>{post.postedAt}</time>
                 <strong>{post.title}</strong>
@@ -54,13 +64,9 @@ export async function getStaticProps() {
   });
 
   function formatar(data: string) {
-    const dateFormated = format(
-      new Date(data),
-      "d' de 'MMMM' de 'Y",
-      {
-        locale: ptBR,
-      }
-    );
+    const dateFormated = format(new Date(data), "d' de 'MMMM' de 'Y", {
+      locale: ptBR,
+    });
 
     return dateFormated;
   }

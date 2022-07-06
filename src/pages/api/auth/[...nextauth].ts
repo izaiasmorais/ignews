@@ -12,12 +12,13 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
-
-  // with this prop we have access to many things that are made in login
-  // and we can control these things like the data of the people who logged in
-
+  debug: true,
+  secret: process.env.NEXTAUTH_SECRET,
+  jwt: {
+    secret: process.env.SIGNING_KEY,
+  },
   callbacks: {
-    async session({ session, token }) {
+    async session({ session }) {
       try {
         const userActiveSubscription = await fauna.query(
           q.Get(
@@ -50,7 +51,7 @@ export default NextAuth({
         };
       }
     },
-    async signIn({ user, account, profile }) {
+    async signIn({ user }) {
       const { email } = user;
 
       try {
@@ -72,5 +73,4 @@ export default NextAuth({
       }
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
 });
