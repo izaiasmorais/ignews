@@ -1,13 +1,13 @@
 import { query as q } from "faunadb";
 
 import NextAuth from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+import GithubProvider from "next-auth/providers/github";
 
 import { fauna } from "../../../services/fauna";
 
 export default NextAuth({
   providers: [
-    GitHubProvider({
+    GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
@@ -18,7 +18,7 @@ export default NextAuth({
     secret: process.env.SIGNING_KEY,
   },
   callbacks: {
-    async session({ session, token }) {
+    async session({ session }) {
       try {
         const userActiveSubscription = await fauna.query(
           q.Get(
@@ -51,9 +51,9 @@ export default NextAuth({
         };
       }
     },
-
-    async signIn({ user, account, profile }) {
+    async signIn({ user }) {
       const { email } = user;
+
       try {
         await fauna.query(
           q.If(
@@ -66,6 +66,7 @@ export default NextAuth({
             q.Get(q.Match(q.Index("user_by_email"), q.Casefold(user.email!)))
           )
         );
+
         return true;
       } catch {
         return false;
