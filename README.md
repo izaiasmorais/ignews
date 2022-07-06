@@ -12,7 +12,6 @@
 
 ### 🚀 Desenvolvimento
 - React JS
-- React Router Dom
 - Stripe API
 - FaunaDB
 - GraphQL
