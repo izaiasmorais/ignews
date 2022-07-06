@@ -33,15 +33,7 @@
 
 @media (max-width: 768px) {
   .signInButton {
-    font-size: 10px;
-    padding: 0 .5rem;
-
-    svg:first-child {
-      margin-right: 0.5rem;
-    }
-
-    svg.closeIcon {
-      margin-left: 0.5rem;
-    }
+    font-size: .9rem;
+    padding: 0 1rem;
   }
 }
