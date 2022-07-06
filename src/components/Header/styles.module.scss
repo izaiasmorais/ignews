@@ -55,3 +55,25 @@
     margin-left: auto;
   }
 }
+
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 0 0 0 1rem;
+
+    a img {
+      max-width: 70px;
+    }
+
+    nav {
+      margin-left: 1rem;
+
+      a {
+        font-size: .9rem;
+
+        & + a {
+          margin-left: .3rem;
+        }
+      }
+    }
+  }
+}

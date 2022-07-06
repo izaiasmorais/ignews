@@ -1,6 +1,6 @@
 .contentContainer {
   max-width: 1120px;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   padding: 0 2rem;
   height: calc(100vh - 5rem);
 
@@ -41,5 +41,24 @@
 
   button {
     margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    display: grid;
+
+    img {
+      filter: brightness(0.3);
+      position: fixed;
+      z-index: -1;
+    }
+  }
+  .hero {
+    h1 {
+      font-size: 4rem;
+    }
   }
 }
