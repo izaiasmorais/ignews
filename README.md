@@ -16,7 +16,7 @@
 - FaunaDB
 - GraphQL
 - GraphCMS
-- NextJS Pogress Bar
+- Next JS Progress Bar
 - TypeScript
 - Sass
 
