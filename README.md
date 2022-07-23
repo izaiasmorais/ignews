@@ -2,8 +2,6 @@
 Ignews Blog 💻
 </h1>
 
-<p align="center">Um pequeno blog privado</p>
-
 
 ## 📃 Sobre o projeto
 
@@ -35,6 +33,13 @@ $ git clone https://github.com/IzaiasMorais/ignews.git && cd ignews
 ```bash
 # Install the dependecies
 $ npm i
+
+# Create a OAuth App here o Github
+1. Go to Settings / Developer settings / OAuth Apps
+2. Create a new app
+3. Set the homepage as 'https://yoururl/'
+4. Set Authorization callback URL as 'http://yoururl/api/auth/callback'
+5. Take the clientId and ClientSecret key and replace in [...nextauth].ts on the code
 
 # Run Stripe Webhook Listener
 $ stripe listen --forward-to localhost:3000/api/webhooks
