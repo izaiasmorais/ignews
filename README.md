@@ -39,7 +39,7 @@ $ npm i
 2. Create a new app
 3. Set the homepage as 'https://yoururl/'
 4. Set Authorization callback URL as 'http://yoururl/api/auth/callback'
-5. Take the clientId and ClientSecret key and replace in [...nextauth].ts on the code
+5. Take the clientId and clientSecret key and replace in [...nextauth].ts on the code
 
 # Run Stripe Webhook Listener
 $ stripe listen --forward-to localhost:3000/api/webhooks
