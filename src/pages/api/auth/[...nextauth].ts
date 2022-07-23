@@ -18,6 +18,7 @@ export default NextAuth({
     secret: process.env.SIGNING_KEY,
   },
   callbacks: {
+    
     async session({ session }) {
       try {
         const userActiveSubscription = await fauna.query(
@@ -51,6 +52,7 @@ export default NextAuth({
         };
       }
     },
+
     async signIn({ user }) {
       const { email } = user;
 

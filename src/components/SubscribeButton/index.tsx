@@ -1,7 +1,9 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { api } from "../../services/api";
 import { getStripeJs } from "../../services/stripe-js";
+import BeatLoader from "react-spinners/BeatLoader";
 
 import styles from "./styles.module.scss";
 
@@ -12,6 +14,8 @@ interface SubscribeButtonProps {
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
   const { data: session } = useSession();
   const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
 
   async function handleSubscribe() {
     if (!session) {
@@ -25,6 +29,8 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
     }
 
     try {
+      setLoading(!loading);
+
       const response = await api.post("/subscribe");
 
       const { sessionId } = response.data;
@@ -43,7 +49,11 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       className={styles.subscribeButton}
       onClick={handleSubscribe}
     >
-      Subscribe now
+      {loading ? (
+        <BeatLoader loading={loading} size={10} color="#000000" />
+      ) : (
+        "Subscribe now"
+      )}
     </button>
   );
 }
