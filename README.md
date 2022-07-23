@@ -5,18 +5,18 @@ Ignews Blog 💻
 <p align="center">Um pequeno blog privado</p>
 
 
-## 📃 About the project
+## 📃 Sobre o projeto
 
 Um blog privado que possui autenticação pelo Github com NextAuth, integração com Stripe para pagamentos e listagem de dados com GraphQL.
 
-### Functionalities
+### Funcionalidades
 
 - Autenticação pelo Github com NextAuth.
 - Pagamentos via Stripe API.
 - Armazenamento de dados com FaunaDB.
 - Listagem de dados com GraphQL através do Apollo.
 
-## 🚀 Technologies
+## 🚀 Tecnologias
 
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
