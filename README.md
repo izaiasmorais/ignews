@@ -11,9 +11,9 @@ Um blog privado que possui autenticação pelo Github com NextAuth, integração
 ### Funcionalidades
 
 - Autenticação pelo Github com NextAuth.
-- Pagamentos via Stripe API.
+- Pagamentos via Stripe.
 - Armazenamento de dados com FaunaDB.
-- Listagem de dados com GraphQL através do Apollo.
+- Listagem de dados com GraphQL através do ApolloClient.
 
 ## 🚀 Tecnologias
 
@@ -43,7 +43,7 @@ $ npm i
 5. Take the clientId and clientSecret key and replace in [...nextauth].ts on the code
 
 # Run Stripe Webhook Listener
-$ stripe listen --forward-to localhost:3000/api/webhooks
+$ stripe listen --forward-to 'youurl/api/webhooks'
 
 # Run the project
 $ npm run dev
