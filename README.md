@@ -7,7 +7,7 @@ Ignews Blog 💻
 
 ## 📃 About the project
 
-
+Um blog privado que possui autenticação pelo Github com NextAuth, integração com Stripe para pagamentos e listagem de dados com GraphQL.
 
 ### Functionalities
 
