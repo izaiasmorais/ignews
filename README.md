@@ -2,6 +2,7 @@
 Ignews Blog 💻
 </h1>
 
+https://user-images.githubusercontent.com/53953937/180615002-2203dc63-6d01-487c-bf37-87020aa3fd72.mp4
 
 ## 📃 Sobre o projeto
 
