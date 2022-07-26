@@ -21,6 +21,7 @@ Um blog privado que possui autenticação pelo Github com NextAuth, integração
 - [TypeScript](https://www.typescriptlang.org/)
 - [Stripe](https://stripe.com/en-br)
 - [FaunaDB](https://fauna.com/)
+- [Sass](https://sass-lang.com/)
 - [GraphQL](https://graphql.org/)
 - [GraphCMS](https://hygraph.com/)
 - [ApolloClient](https://www.apollographql.com/docs/react/)
